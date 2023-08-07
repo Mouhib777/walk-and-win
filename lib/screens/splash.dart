@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:walk_and_win/constant/constant.dart';
 import 'package:walk_and_win/screens/home.dart';
+import 'package:walk_and_win/screens/register-login/login.dart';
 import 'package:walk_and_win/screens/register-login/register.dart';
 
 class splashScreen extends StatefulWidget {
@@ -23,14 +24,13 @@ class _splashScreenState extends State<splashScreen> {
         Duration(
           seconds: 3,
         ), () async {
-      final locationData =
 
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user == null) {
           Navigator.of(context).push(PageRouteBuilder(
               transitionDuration: Duration.zero,
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  RegisterScreen()));
+                  loginScreen()));
         } else {
             Navigator.of(context).push(PageRouteBuilder(
                 transitionDuration: Duration.zero,

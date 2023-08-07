@@ -11,11 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tunisie_autoroutes/constant/constant.dart';
-import 'package:tunisie_autoroutes/screens/login-register/login.dart';
-import 'package:tunisie_autoroutes/screens/login-register/terms.dart';
+
 import 'package:walk_and_win/constant/constant.dart';
 import 'package:walk_and_win/screens/register-login/login.dart';
+import 'package:walk_and_win/screens/terms.dart';
 
 class registerScreen extends StatefulWidget {
   const registerScreen({super.key});
@@ -25,22 +24,21 @@ class registerScreen extends StatefulWidget {
 }
 
 class _registerScreenState extends State<registerScreen> {
-  bool _acceptedTerms = false;
   String? email;
   String? f_name;
-  String? password;
-  String? p_confirm;
-  var _fNameController = TextEditingController();
-  var _emailController = TextEditingController();
-  var _passwordController = TextEditingController();
-  var _confirmController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-  bool _obscureText = true;
-  bool _isLoading = false;
-
-  File? _pickedImage;
   String? imageUrl;
+  String? p_confirm;
+  String? password;
 
+  bool _acceptedTerms = false;
+  var _confirmController = TextEditingController();
+  var _emailController = TextEditingController();
+  var _fNameController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+  bool _obscureText = true;
+  var _passwordController = TextEditingController();
+  File? _pickedImage;
   final Random _random = Random();
 
   String generateRandomName(int length) {
@@ -301,9 +299,7 @@ class _registerScreenState extends State<registerScreen> {
                                 // var _token = await _firebaseMessaging.getToken();
                                 if (_formKey.currentState!.validate()) {
                                   try {
-                                   
-                                 
-                                      setState(() {
+                                    setState(() {
                                         _isLoading = true;
                                       });
                                      
@@ -408,65 +404,7 @@ class _registerScreenState extends State<registerScreen> {
                     style: GoogleFonts.montserrat(),
                     ),
                     SizedBox(height: 15,) , 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            child: Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                               color: Color.fromARGB(20, 158, 158, 158) ,
-                                borderRadius: BorderRadius.circular(15) , 
-                                
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset("assets/images/fb.png" , 
-                                  height: 30,
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Text("Facebook" , 
-                                  style: GoogleFonts.montserrat(),
-                                  
-                                  )
-                                ],
-                              ),
-                            ),
-                            onTap: () {
-                              
-                            },
-                          ) , 
-                          SizedBox(width: 20,),
-                           InkWell(
-                             child: Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                              color: Color.fromARGB(20, 158, 158, 158) ,
-                                borderRadius: BorderRadius.circular(15) , 
-                                
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset("assets/images/google.png" , height: 25,),
-                                  SizedBox(width: 10,),
-                                  Text("Google" , 
-                                  style: GoogleFonts.montserrat(),
-                                  
-                                  )
-                                ],
-                              ),
-                                                     ),
-                                                     onTap: () {
-                                                       
-                                                     },
-                           )
-
-
-                    ],),
+                   
                       SizedBox(
                       height: 20,
                     ),
@@ -496,7 +434,7 @@ class _registerScreenState extends State<registerScreen> {
                               Navigator.of(context).push(PageRouteBuilder(
                                   transitionDuration: Duration.zero,
                                   pageBuilder: (context, animation, secondary) =>
-                                      LoginScreen()));
+                                      loginScreen()));
                             },
                           ),
                         ],
@@ -510,6 +448,4 @@ class _registerScreenState extends State<registerScreen> {
               ))),
     );
   }
-
-
 }
