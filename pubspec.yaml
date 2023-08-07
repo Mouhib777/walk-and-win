@@ -40,6 +40,8 @@ dependencies:
   firebase_auth: ^4.7.2
   cloud_firestore: ^4.8.4
   animate_do: ^3.0.2
+  animated_snack_bar: ^0.3.1
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:
