@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:walk_and_win/constant/constant.dart';
+import 'package:walk_and_win/screens/home.dart';
+import 'package:walk_and_win/screens/register-login/register.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({super.key});
@@ -27,14 +30,13 @@ class _splashScreenState extends State<splashScreen> {
           Navigator.of(context).push(PageRouteBuilder(
               transitionDuration: Duration.zero,
               pageBuilder: (context, animation, secondaryAnimation) =>
-                  welcomeScreen()));
+                  RegisterScreen()));
         } else {
-          if (locationData.permissionAllowed == true) {
             Navigator.of(context).push(PageRouteBuilder(
                 transitionDuration: Duration.zero,
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    navBar()));
-          }
+                    HomeScreen()));
+          
         }
       });
     });
