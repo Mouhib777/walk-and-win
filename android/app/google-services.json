@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "603596443071",
+    "project_id": "kjlgfxc",
+    "storage_bucket": "kjlgfxc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603596443071:android:571b526d16d25d8896a50a",
+        "android_client_info": {
+          "package_name": "com.example.walk_and_win"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603596443071-4h9pbv941jnh8b71i864kconccedr9b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb16hmmLdXzB8Gxgep3AZ8p3gUfgg3wMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603596443071-4h9pbv941jnh8b71i864kconccedr9b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
