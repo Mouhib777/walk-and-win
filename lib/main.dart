@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
       title: 'Walk and win',
       theme: myTheme,
       home:  splashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

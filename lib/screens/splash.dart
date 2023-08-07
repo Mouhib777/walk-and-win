@@ -53,9 +53,9 @@ class _splashScreenState extends State<splashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "TAK TAK",
+              "Walk and win",
               style: GoogleFonts.montserrat(
-                  fontSize: 48,
+                  fontSize: 40,
                   color: Colors.white,
                   fontWeight: FontWeight.w900),
             ),
@@ -63,7 +63,7 @@ class _splashScreenState extends State<splashScreen> {
               height: 10,
             ),
             Text(
-              "Ready to serve you",
+              "Walk and win",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w400,
                   fontSize: 18,
