@@ -256,7 +256,7 @@ class _registerScreenState extends State<registerScreen> {
                                 child: Text(
                                   "the terms and conditions",
                                   style: GoogleFonts.montserratAlternates(
-                                      fontSize: 12, color: primaryColor),
+                                      fontSize: 12, color: primarycolor),
                                 ),
                                 onTap: () {
                                   Navigator.of(context).push(PageRouteBuilder(
@@ -386,7 +386,7 @@ class _registerScreenState extends State<registerScreen> {
                               fontSize: 20, fontWeight: FontWeight.w600),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryColor,
+                          backgroundColor: primarycolor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(35.0)),
                         ),
