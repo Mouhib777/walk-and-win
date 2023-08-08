@@ -89,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
       var steps = receivedData.isEmpty ? "5000" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
     return Scaffold(
+      
      
       body: Center(
         child: Padding(
@@ -136,13 +137,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ) , 
-              SizedBox(height: 40,) , 
+              SizedBox(height: 10,) , 
               Icon(Icons.run_circle , 
               color: primarycolor, 
               size: 80,
               ),
               
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
                  CircularPercentIndicator(
                 radius: 130.0,
                 animation: true,
@@ -178,8 +179,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Colors.grey,
                 progressColor: primarycolor,
               ),
-                      SizedBox(height: 80,),
-               SizedBox(
+                      
+                      Stack(
+                        children: [
+                          Image.asset("images/pic2.jpg" , height: 220,),
+                          Positioned(
+                            right: MediaQuery.of(context).size.width / 6,
+                            top: 90,
+                            child:  SizedBox(
                 width: 200,
                  child: ElevatedButton(
                   onPressed:() {
@@ -203,7 +210,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10)),
                   ),
                              ),
-               ),
+               ),)
+                        ],
+                      ),
+              
             ],
           ),
         ),
