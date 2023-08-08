@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:walk_and_win/constant/constant.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -130,6 +131,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ) , 
+              SizedBox(height: 40,) , 
+              Icon(Icons.run_circle , 
+              color: primarycolor, 
+              size: 80,
+              ),
               ElevatedButton(
                 onPressed:() {
                    print("object");
