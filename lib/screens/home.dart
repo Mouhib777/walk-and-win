@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-      var steps = receivedData.isEmpty ? "8264" : receivedData.join(", ") ; 
+      var steps = receivedData.isEmpty ? "5000" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
     return Scaffold(
      
@@ -151,12 +152,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 center:  Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      steps,
-                      style: GoogleFonts.montserrat(
-                    fontSize: 40 , 
-                    fontWeight: FontWeight.w800 , 
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          steps,
+                          style: GoogleFonts.montserrat(
+                        fontSize: 40 , 
+                        fontWeight: FontWeight.w800 , 
               ),
+                        ),
+                        // SizedBox(
+                        // width: 10,),
+                        SizedBox(height: 15,),
+                      ],
                     ), 
                     Text("Steps" , 
                      style: GoogleFonts.montserrat(
@@ -171,15 +180,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 progressColor: primarycolor,
               ),
                       SizedBox(height: 80,),
-               ElevatedButton(
-                onPressed:() {
-                   print("object");
-                  scanAndConnect ; 
-                 
-        
-                } ,
-                child: Text('Connect to Device'),
-              ),
+               SizedBox(
+                width: 200,
+                 child: ElevatedButton(
+                  onPressed:() {
+                     print("object");
+                    scanAndConnect ; 
+                   
+                       
+                  } ,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Connect to Device', 
+                      style: GoogleFonts.montserrat(),
+                      ), 
+                      SizedBox(width: 10,),
+                      Icon(CupertinoIcons.bluetooth)
+                    ],
+                  ), 
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                  ),
+                             ),
+               ),
             ],
           ),
         ),
