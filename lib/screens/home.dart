@@ -104,9 +104,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       ), 
                       SizedBox(height: 10,) , 
-                      Text("Let's check your activity")
+                      Text("Let's check your activity" , 
+                      style: GoogleFonts.montserrat(
+                        fontSize: 16 , 
+                        fontWeight:  FontWeight.w500 
+                      ),
+                      )
                     ],
-                  ),
+                  ), 
+                  SizedBox(width: 70,),
+                  CircleAvatar(
+                    radius: 30,
+                  )
                 ],
               ) , 
               ElevatedButton(
