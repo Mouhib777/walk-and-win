@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       service.characteristics.forEach((characteristic) {
         if (characteristic.uuid.toString() ==
         // badelha bil uuid 
-        // exemple 0000XXXX-0000-1000-8000-00805F9B34FB
+        // exemple: 0000XXXX-0000-1000-8000-00805F9B34FB
          "YOUR_CHARACTERISTIC_UUID" //na7y ""
          ) {
           targetCharacteristic = characteristic;
