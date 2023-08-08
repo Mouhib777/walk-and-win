@@ -19,7 +19,7 @@ class _loginScreenState extends State<loginScreen> {
   String? f_name;
   String? password;
   String? p_confirm;
-  bool _obscureText = true;   // declareha houni mn loul 
+  bool _obscureText = true;  
   bool _isLoading = false;
 
   @override
