@@ -179,15 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Colors.grey,
                 progressColor: primarycolor,
               ),
+              Image.asset("images/pic3.jpg" , height: 175,),
                       
-                      Stack(
-                        children: [
-                          Image.asset("images/pic2.jpg" , height: 220,),
-                          Positioned(
-                            right: MediaQuery.of(context).size.width / 6,
-                            top: 90,
-                            child:  SizedBox(
-                width: 200,
+                      SizedBox(
+                width: 130,
                  child: ElevatedButton(
                   onPressed:() {
                      print("object");
@@ -198,21 +193,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Connect to Device', 
+                      Text('Connect', 
                       style: GoogleFonts.montserrat(),
                       ), 
-                      SizedBox(width: 10,),
+                      SizedBox(width: 5,),
                       Icon(CupertinoIcons.bluetooth)
                     ],
                   ), 
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10)),
                   ),
-                             ),
-               ),)
-                        ],
-                      ),
+                       ),
+               ),
               
             ],
           ),
