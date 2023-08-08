@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-      var steps = receivedData.isEmpty ? "8000" : receivedData.join(", ") ; 
+      var steps = receivedData.isEmpty ? "8264" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
     return Scaffold(
      
@@ -157,7 +157,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 40 , 
                     fontWeight: FontWeight.w800 , 
               ),
-                    ),
+                    ), 
+                    Text("Steps" , 
+                     style: GoogleFonts.montserrat(
+                    fontSize: 12 , 
+                    fontWeight: FontWeight.w500 , 
+                     )
+                    )
                   ],
                 ),
                 circularStrokeCap: CircularStrokeCap.butt,
