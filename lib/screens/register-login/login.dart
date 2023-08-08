@@ -149,7 +149,6 @@ class _loginScreenState extends State<loginScreen> {
                       return null;
                     }
                   },
-                  //houni obscureText = true
           
                   obscureText: _obscureText,
           
