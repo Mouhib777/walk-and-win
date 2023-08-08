@@ -19,7 +19,7 @@ class _loginScreenState extends State<loginScreen> {
   String? f_name;
   String? password;
   String? p_confirm;
-  bool _obscureText = true;
+  bool _obscureText = true;   // declareha houni mn loul 
   bool _isLoading = false;
 
   @override
@@ -111,21 +111,24 @@ class _loginScreenState extends State<loginScreen> {
               SizedBox(
                 width: 333,
                 child: TextFormField(
+                  style:GoogleFonts.montserrat() ,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
                       icon: Icon(
+                        // houni te3 icon tetbadel k tenzel
                         _obscureText ? Icons.visibility : Icons.visibility_off,
                         color: Colors.grey,
                       ),
                       onPressed: () {
+                        // houni k tenzel w tsir action taaml update li page (cas te3na tsir affichage mdp)
+                        //set state 3ibara kima refresh baed fonction matkhdem
                         setState(() {
+                          // no9tet ta3ajob (!) maaneha aaks ken true twali false w aks bil aks
                           _obscureText = !_obscureText;
                         });
                       },
                     ),
-                    hintStyle: GoogleFonts.montserrat(),
-                    labelStyle: GoogleFonts.montserrat(),
-                    counterStyle: GoogleFonts.montserrat(),
+                   
                     hintText: 'Mot de passe',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -147,6 +150,7 @@ class _loginScreenState extends State<loginScreen> {
                       return null;
                     }
                   },
+                  //houni obscureText = true w false ça depend l sar f ligne 127
           
                   obscureText: _obscureText,
           
