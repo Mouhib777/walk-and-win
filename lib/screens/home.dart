@@ -112,9 +112,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ), 
-                  SizedBox(width: 70,),
-                  CircleAvatar(
-                    radius: 30,
+                  SizedBox(width: 60,),
+                  Container(
+                    height: 70 , 
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent , 
+                      border: Border.all(
+                        color: Colors.grey , 
+                        width: 5
+                      ) , 
+                      borderRadius: BorderRadius.circular(40)
+                    ),
+                    child: CircleAvatar(
+                      radius: 30,
+                    ),
                   )
                 ],
               ) , 
