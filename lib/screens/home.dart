@@ -66,20 +66,30 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
      
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed:() {
-                 print("object");
-                scanAndConnect ; 
-               
-
-              } ,
-              child: Text('Connect to Device'),
-            ),
-            Text('Received Data: ${receivedData.isEmpty ? "None" : receivedData.join(", ")}'),
-          ],
+        child: Padding(
+          padding:  EdgeInsets.all(15.0),
+          child: Column(
+            
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 30,),
+              Row(
+                children: [
+                  Text("Hi , "),
+                ],
+              ) , 
+              ElevatedButton(
+                onPressed:() {
+                   print("object");
+                  scanAndConnect ; 
+                 
+        
+                } ,
+                child: Text('Connect to Device'),
+              ),
+              Text('Received Data: ${receivedData.isEmpty ? "None" : receivedData.join(", ")}'),
+            ],
+          ),
         ),
       ),
     );
