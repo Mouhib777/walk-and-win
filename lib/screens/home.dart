@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:walk_and_win/constant/constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -162,15 +163,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-              SizedBox(height: 10,),
-               LinearPercentIndicator(
-                        lineHeight: 8.0,
-                        percent: percentage,
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary.withAlpha(30),
-                        progressColor: Theme.of(context).primaryColor,
-                      ),
+              SizedBox(height: 40,),
+                 CircularPercentIndicator(
+                radius: 130.0,
+                animation: true,
+                animationDuration: 1200,
+                lineWidth: 15.0,
+                percent: 0.4,
+                center:  Text(
+                  "40 hours",
+                  style:
+                       TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+                circularStrokeCap: CircularStrokeCap.butt,
+                backgroundColor: Colors.grey,
+                progressColor: primarycolor,
+              ),
+                      SizedBox(height: 80,),
                ElevatedButton(
                 onPressed:() {
                    print("object");
