@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:walk_and_win/constant/constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -136,7 +137,39 @@ class _HomeScreenState extends State<HomeScreen> {
               color: primarycolor, 
               size: 80,
               ),
-              ElevatedButton(
+              Text('${receivedData.isEmpty ? "0" : receivedData.join(", ")}' , 
+              style: GoogleFonts.montserrat(
+                fontSize: 40 , 
+                fontWeight: FontWeight.w800 , 
+              ),
+              ),
+              Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            '0 Steps'.toUpperCase(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            '9000 Steps'.toUpperCase(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+              SizedBox(height: 10,),
+               LinearPercentIndicator(
+                        lineHeight: 8.0,
+                        percent: 0.7,
+                        linearStrokeCap: LinearStrokeCap.roundAll,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary.withAlpha(30),
+                        progressColor: Theme.of(context).primaryColor,
+                      ),
+               ElevatedButton(
                 onPressed:() {
                    print("object");
                   scanAndConnect ; 
@@ -145,7 +178,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 } ,
                 child: Text('Connect to Device'),
               ),
-              Text('Received Data: ${receivedData.isEmpty ? "None" : receivedData.join(", ")}'),
             ],
           ),
         ),
