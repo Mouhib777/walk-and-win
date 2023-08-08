@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-      var steps = receivedData.isEmpty ? "4100" : receivedData.join(", ") ; 
+      var steps = receivedData.isEmpty ? "8000" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
     return Scaffold(
      
@@ -140,40 +140,25 @@ class _HomeScreenState extends State<HomeScreen> {
               color: primarycolor, 
               size: 80,
               ),
-              Text(steps ,  
-              style: GoogleFonts.montserrat(
-                fontSize: 40 , 
-                fontWeight: FontWeight.w800 , 
-              ),
-              ),
-              Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            '0 Steps'.toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Text(
-                            '10000 Steps'.toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-              SizedBox(height: 40,),
+              
+              SizedBox(height: 20,),
                  CircularPercentIndicator(
                 radius: 130.0,
                 animation: true,
                 animationDuration: 1200,
                 lineWidth: 15.0,
-                percent: 0.4,
-                center:  Text(
-                  "40 hours",
-                  style:
-                       TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                percent: percentage,
+                center:  Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      steps,
+                      style: GoogleFonts.montserrat(
+                    fontSize: 40 , 
+                    fontWeight: FontWeight.w800 , 
+              ),
+                    ),
+                  ],
                 ),
                 circularStrokeCap: CircularStrokeCap.butt,
                 backgroundColor: Colors.grey,
