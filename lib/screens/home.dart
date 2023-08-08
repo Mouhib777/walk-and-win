@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -93,7 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 30,),
               Row(
                 children: [
-                  Text("Hi ,${user_data?["full name"] ?? ""}"),
+                  Text("Hi , ${user_data?["full name"] ?? ""}" , 
+                  style: GoogleFonts.montserrat(
+                    fontSize: 18 , 
+                    fontWeight:  FontWeight.w700 
+                  ),
+                  ),
                 ],
               ) , 
               ElevatedButton(
