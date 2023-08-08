@@ -120,8 +120,7 @@ class _loginScreenState extends State<loginScreen> {
                         color: Colors.grey,
                       ),
                       onPressed: () {
-                        // houni k tenzel w tsir action taaml update li page (cas te3na tsir affichage mdp)
-                        //set state 3ibara kima refresh baed fonction matkhdem
+                       
                         setState(() {
                           _obscureText = !_obscureText;
                         });
