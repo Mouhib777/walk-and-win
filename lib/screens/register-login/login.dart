@@ -115,7 +115,6 @@ class _loginScreenState extends State<loginScreen> {
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
                       icon: Icon(
-                        // houni te3 icon tetbadel k tenzel
                         _obscureText ? Icons.visibility : Icons.visibility_off,
                         color: Colors.grey,
                       ),
