@@ -19,11 +19,11 @@ class _loginScreenState extends State<loginScreen> {
   String? f_name;
   String? password;
   String? p_confirm;
-
   bool _obscureText = true;
   bool _isLoading = false;
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -324,44 +324,5 @@ class _loginScreenState extends State<loginScreen> {
     );
   }
 
-  // Future<void> _signInWithFacebook() async {
-  //   setState(() {
-  //     _isLoading = true;
-  //   });
-
-  //   try {
-  //     // Login to Facebook
-  //     final LoginResult result = await FacebookAuth.instance.login();
-
-  //     // Get access token
-  //     final accessToken = result.accessToken!.token;
-
-  //     // Authenticate with Firebase using Facebook access token
-  //     final AuthCredential credential =
-  //         FacebookAuthProvider.credential(accessToken);
-
-  //     final UserCredential userCredential =
-  //         await _auth.signInWithCredential(credential);
-  //     _user = userCredential.user;
-
-  //     // Store user data in Firestore
-  //     await _firestore.collection('user').doc(_user!.uid).set({
-  //       'full name': _user!.displayName,
-  //       'email': _user!.email,
-  //       'photoUrl': _user!.photoURL,
-  //       'id': _user!.uid
-  //       // Add other user data as needed
-  //     });
-  //   } on FirebaseAuthException catch (e) {
-  //     // Handle Firebase Auth exceptions
-  //     print('FirebaseAuthException: $e');
-  //   } catch (e) {
-  //     // Handle other exceptions
-  //     print('Error: $e');
-  //   } finally {
-  //     setState(() {
-  //       _isLoading = false;
-  //     });
-  //   }
-  // }
+ 
 }
