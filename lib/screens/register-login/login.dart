@@ -123,7 +123,7 @@ class _loginScreenState extends State<loginScreen> {
                         // houni k tenzel w tsir action taaml update li page (cas te3na tsir affichage mdp)
                         //set state 3ibara kima refresh baed fonction matkhdem
                         setState(() {
-                          // no9tet ta3ajob (!) maaneha aaks ken true twali false w aks bil aks
+                          // no9tet ta3ajob (!) maaneha aaks ken true twali false w aks
                           _obscureText = !_obscureText;
                         });
                       },
@@ -150,7 +150,7 @@ class _loginScreenState extends State<loginScreen> {
                       return null;
                     }
                   },
-                  //houni obscureText = true w false ça depend l sar f ligne 127
+                  //houni obscureText = true
           
                   obscureText: _obscureText,
           
