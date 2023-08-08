@@ -162,8 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w800 , 
               ),
                         ),
-                        // SizedBox(
-                        // width: 10,),
+                  
                         SizedBox(height: 15,),
                       ],
                     ), 
