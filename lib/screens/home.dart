@@ -84,6 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
+      var steps = receivedData.isEmpty ? "4100" : receivedData.join(", ") ; 
+      double? percentage = double.tryParse(steps)! / 10000 ; 
     return Scaffold(
      
       body: Center(
@@ -137,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: primarycolor, 
               size: 80,
               ),
-              Text('${receivedData.isEmpty ? "0" : receivedData.join(", ")}' , 
+              Text(steps ,  
               style: GoogleFonts.montserrat(
                 fontSize: 40 , 
                 fontWeight: FontWeight.w800 , 
@@ -153,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Text(
-                            '9000 Steps'.toUpperCase(),
+                            '10000 Steps'.toUpperCase(),
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -163,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 10,),
                LinearPercentIndicator(
                         lineHeight: 8.0,
-                        percent: 0.7,
+                        percent: percentage,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor:
                             Theme.of(context).colorScheme.secondary.withAlpha(30),
