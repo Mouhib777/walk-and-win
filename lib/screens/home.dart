@@ -94,11 +94,18 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 30,),
               Row(
                 children: [
-                  Text("Hi , ${user_data?["full name"] ?? ""}" , 
-                  style: GoogleFonts.montserrat(
-                    fontSize: 18 , 
-                    fontWeight:  FontWeight.w700 
-                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Hi , ${user_data?["full name"] ?? ""}" , 
+                      style: GoogleFonts.montserrat(
+                        fontSize: 18 , 
+                        fontWeight:  FontWeight.w700 
+                      ),
+                      ), 
+                      SizedBox(height: 10,) , 
+                      Text("Let's check your activity")
+                    ],
                   ),
                 ],
               ) , 
