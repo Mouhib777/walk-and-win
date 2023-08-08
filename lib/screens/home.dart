@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
@@ -60,7 +62,23 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
   }
+  var user_data;
 
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    final User? user1 = FirebaseAuth.instance.currentUser;
+    String? _uid = user1!.uid;
+    var result1 =
+        await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+    setState(() {
+      user_data = result1;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 30,),
               Row(
                 children: [
-                  Text("Hi , "),
+                  Text("Hi ,${user_data?["full name"] ?? ""}"),
                 ],
               ) , 
               ElevatedButton(
