@@ -86,8 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-      var steps = receivedData.isEmpty ? "5000" : receivedData.join(", ") ; 
+      var steps = receivedData.isEmpty ? "5749" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
+      double? argent = double.tryParse(steps)! /100 ;
     return Scaffold(
       
      
@@ -138,10 +139,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ) , 
               SizedBox(height: 10,) , 
-              Icon(Icons.run_circle , 
-              color: primarycolor, 
-              size: 80,
-              ),
+             
+              // Icon(Icons.run_circle , 
+              // color: primarycolor, 
+              // size: 80,
+              // ),
               
               SizedBox(height: 10,),
                  CircularPercentIndicator(
@@ -179,7 +181,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Colors.grey,
                 progressColor: primarycolor,
               ),
-              Image.asset("images/pic3.jpg" , height: 175,),
+              SizedBox(height: 20,),
+               Text("You'll earn $argent TND" , 
+              style: GoogleFonts.montserrat(
+                fontSize: 14 , 
+                fontWeight: FontWeight.w500
+              ),
+              ) , 
+              Image.asset("images/pic3.jpg" , height: 220,),
                       
                       SizedBox(
                 width: 130,
