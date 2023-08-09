@@ -28,7 +28,7 @@ class _loginScreenState extends State<loginScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(assetName)
+          image: AssetImage("images/pic2.jpg")
           )
       ),
       child: Scaffold(
