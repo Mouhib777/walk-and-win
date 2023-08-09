@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       double? percentage = double.tryParse(steps)! / 10000 ; 
       double? argent = double.tryParse(steps)! /100 ;
     return Scaffold(
-      
+      backgroundColor: Colors.white,
      
       body: Center(
         child: Padding(
