@@ -28,7 +28,9 @@ class _loginScreenState extends State<loginScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/pic2.jpg")
+          image: AssetImage("images/pic2.jpg") , 
+          fit: BoxFit.fitHeight, 
+          opacity: 180
           )
       ),
       child: Scaffold(
@@ -66,7 +68,9 @@ class _loginScreenState extends State<loginScreen> {
                   child: Text(
                     "Connexion",
                     style: GoogleFonts.montserratAlternates(
-                        fontSize: 34, fontWeight: FontWeight.bold),
+                        fontSize: 34, fontWeight: FontWeight.bold, 
+                        color: Colors.white
+                        ),
                   ),
                 ),
               ],
@@ -82,7 +86,7 @@ class _loginScreenState extends State<loginScreen> {
                 "Nous vous attendons pour vous          reconnecter",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.w400, fontSize: 14 ,color: Colors.black),
+                    fontWeight: FontWeight.w400, fontSize: 14 ,color: Colors.white),
               ),
                     ),
                     SizedBox(
@@ -94,6 +98,7 @@ class _loginScreenState extends State<loginScreen> {
                 SizedBox(
                   width: 330,
                   child: TextField(
+                    style: GoogleFonts.montserrat(color: Colors.white),
                     decoration: InputDecoration(
                       hintStyle: GoogleFonts.montserrat(),
                       labelStyle: GoogleFonts.montserrat(),
@@ -118,7 +123,9 @@ class _loginScreenState extends State<loginScreen> {
                 SizedBox(
                   width: 333,
                   child: TextFormField(
-                    style:GoogleFonts.montserrat() ,
+                    style:GoogleFonts.montserrat(
+                      color: Colors.white
+                    ) ,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -176,7 +183,7 @@ class _loginScreenState extends State<loginScreen> {
                       },
                       child: Text(
                         "Mot de passe oublié ?",
-                        style: GoogleFonts.montserrat(color: Colors.black),
+                        style: GoogleFonts.montserrat(color: Colors.white),
                       ),
                     ),
                   ],
@@ -258,7 +265,7 @@ class _loginScreenState extends State<loginScreen> {
                     Text(
                       'Pas encore de compte?',
                       style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500, fontSize: 14),
+                          fontWeight: FontWeight.w500, fontSize: 14,color: Colors.white),
                     ),
                     SizedBox(
                       width: 5,
