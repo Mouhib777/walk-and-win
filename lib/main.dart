@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:walk_and_win/constant/constant.dart';
 import 'package:walk_and_win/firebase_options.dart';
+import 'package:walk_and_win/screens/register-login/login.dart';
 import 'package:walk_and_win/screens/splash.dart';
 
 void main() async{
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Walk and win',
       theme: myTheme,
-      home:  splashScreen(),
+      home:  loginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
