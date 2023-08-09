@@ -127,6 +127,7 @@ class _loginScreenState extends State<loginScreen> {
                       color: Colors.white
                     ) ,
                     decoration: InputDecoration(
+                      
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscureText ? Icons.visibility : Icons.visibility_off,
@@ -146,6 +147,7 @@ class _loginScreenState extends State<loginScreen> {
                       labelText: '  Mot de passe',
                     ),
                     autofocus: false,
+                    
             
                    
                     onChanged: (value) {
