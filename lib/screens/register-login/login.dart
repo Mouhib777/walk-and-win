@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:walk_and_win/constant/constant.dart';
+import 'package:walk_and_win/screens/home.dart';
 import 'package:walk_and_win/screens/register-login/register.dart';
 
 class loginScreen extends StatefulWidget {
@@ -241,6 +242,10 @@ class _loginScreenState extends State<loginScreen> {
                           _isLoading = false;
                         });
                       }
+                        Navigator.of(context).push(PageRouteBuilder(
+                transitionDuration: Duration.zero,
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    HomeScreen()));
                     },
                     child: Text(
                       "Connectez-vous",
