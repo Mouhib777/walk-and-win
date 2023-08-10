@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:walk_and_win/constant/constant.dart';
-import 'dart:async';
+// import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   BluetoothDevice? targetDevice;
   BluetoothCharacteristic? targetCharacteristic;
   List<int> receivedData = [];
+   var bluetoothName = "Huawei P SMART" ;
 
   void scanAndConnect() async {
   if (await Permission.bluetoothScan.request().isGranted) {
@@ -31,11 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
     Timer? timeoutTimer; // Define a Timer
 
     // Set a timeout duration (in seconds)
-    const int scanTimeout = 15; // Adjust this value as needed
+    const int scanTimeout = 20; // Adjust this value as needed
 
     scanSubscription = flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
-      if (scanResult.device.name == 'HM10') {
+      
+      if (scanResult.device.name == '$bluetoothName') {
         targetDevice = scanResult.device;
         scanSubscription?.cancel(); // Cancel the scanSubscription
         timeoutTimer?.cancel(); // Cancel the timeoutTimer
@@ -175,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          steps,
+                           steps,
                           style: GoogleFonts.montserrat(
                         fontSize: 40 , 
                         fontWeight: FontWeight.w800 , 
@@ -193,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                circularStrokeCap: CircularStrokeCap.round,
+                circularStrokeCap: CircularStrokeCap.butt,
                 backgroundColor: Color.fromARGB(62, 158, 158, 158),
                 progressColor: primarycolor,
               ),
@@ -210,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 130,
                  child: ElevatedButton(
                   onPressed:() {
-                     EasyLoading.show(status: "Connecting to HM10...");
+                     EasyLoading.show(status: "Connecting to $bluetoothName...");
                     scanAndConnect() ;      
                   } ,
                   child: Row(
