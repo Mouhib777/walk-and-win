@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
         if (characteristic.uuid.toString() ==
         // badelha bil uuid 
         // exemple: 0000XXXX-0000-1000-8000-00805F9B34FB
-         00001234-0000-1000-8000-008051234567 //na7y ""
+         "YOUR_CHARACTERISTIC_UUID" //na7y ""
          ) {
           targetCharacteristic = characteristic;
           subscribeToCharacteristic();
