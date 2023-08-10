@@ -23,21 +23,21 @@ class _HomeScreenState extends State<HomeScreen> {
   BluetoothCharacteristic? targetCharacteristic;
   List<int> receivedData = [];
   
-     Future<void> initializeBluetooth() async {
-      if (await Permission.bluetoothScan.request().isGranted){
-    bool isBluetoothAvailable = await flutterBlue.isOn;
+  //    Future<void> initializeBluetooth() async {
+  //     if (await Permission.bluetoothScan.request().isGranted){
+  //   bool isBluetoothAvailable = await flutterBlue.isOn;
 
-    if (!isBluetoothAvailable) {
-      // You can prompt the user to enable Bluetooth here
-      // For example, you can show a dialog asking the user to enable Bluetooth
-      // Then, you can listen for the Bluetooth state changes and proceed with scanning and connecting
-      // Remember to handle the case when the user cancels the dialog or doesn't enable Bluetooth
-    } else {
-      // Bluetooth is already enabled, proceed with scanning and connecting
-      scanAndConnect();
-    }
-  }
-     }
+  //   if (!isBluetoothAvailable) {
+  //     // You can prompt the user to enable Bluetooth here
+  //     // For example, you can show a dialog asking the user to enable Bluetooth
+  //     // Then, you can listen for the Bluetooth state changes and proceed with scanning and connecting
+  //     // Remember to handle the case when the user cancels the dialog or doesn't enable Bluetooth
+  //   } else {
+  //     // Bluetooth is already enabled, proceed with scanning and connecting
+  //     scanAndConnect();
+  //   }
+  // }
+  //    }
 
   void scanAndConnect() async {
     if (await Permission.bluetoothScan.request().isGranted){
@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (scanResult.device.name == 'HM10') {
         targetDevice = scanResult.device;
         flutterBlue.stopScan();
+        print('Target device found and scanning stopped.');
         connectToDevice();
       }
     });
@@ -90,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    initializeBluetooth();
+    // initializeBluetooth();
     getUserData();
     
   }
