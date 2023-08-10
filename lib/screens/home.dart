@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<int> receivedData = [];
   
      Future<void> initializeBluetooth() async {
+      if (await Permission.bluetoothScan.request().isGranted){
     bool isBluetoothAvailable = await flutterBlue.isOn;
 
     if (!isBluetoothAvailable) {
@@ -36,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       scanAndConnect();
     }
   }
+     }
 
   void scanAndConnect() async {
     if (await Permission.bluetoothScan.request().isGranted){
