@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:walk_and_win/constant/constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void scanAndConnect() {
+  void scanAndConnect() async {
+    if (await Permission.bluetoothScan.request().isGranted){
     flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
       if (scanResult.device.name == 'HM10') {
@@ -45,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         connectToDevice();
       }
     });
+  }
   }
 
   void connectToDevice() async {
