@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:walk_and_win/constant/constant.dart';
 
@@ -36,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       scanAndConnect();
     }
   }
-  
+
   void scanAndConnect() {
     flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
