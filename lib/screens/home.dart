@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Timer? timeoutTimer; // Define a Timer
 
     // Set a timeout duration (in seconds)
-    const int scanTimeout = 10; // Adjust this value as needed
+    const int scanTimeout = 15; // Adjust this value as needed
 
     scanSubscription = flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
@@ -63,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // Set up a timeout
     timeoutTimer = Timer(Duration(seconds: scanTimeout), () {
       scanSubscription?.cancel(); // Cancel the scanSubscription
+      flutterBlue.stopScan();
       EasyLoading.showError('Scanning timed out. Target device not found.') ; 
       print('Scanning timed out. Target device not found.'); // Print the message
     });
@@ -231,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 130,
                  child: ElevatedButton(
                   onPressed:() {
-                     print("object");
+                     EasyLoading.show(status: "Connecting to HM10...");
                     scanAndConnect() ; 
                    
                        
