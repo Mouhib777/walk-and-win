@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Walk and win',
       theme: myTheme,
-      home:  loginScreen(),
+      home:  splashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
