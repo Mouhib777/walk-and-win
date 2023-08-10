@@ -22,7 +22,16 @@ class _HomeScreenState extends State<HomeScreen> {
   BluetoothDevice? targetDevice;
   BluetoothCharacteristic? targetCharacteristic;
   List<int> receivedData = [];
+  
+    Future<void> initializeBluetooth() async {
+    // Obtain the current Bluetooth state
+    BluetoothState state = await flutterBlue.state.first;
 
+    // Check if Bluetooth is not already turned on, then start it
+    if (state != BluetoothState.on) {
+      await flutterBlue.start();
+    }
+  }
   void scanAndConnect() {
     flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
@@ -72,7 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    initializeBluetooth();
     getUserData();
+    
   }
 
   Future<void> getUserData() async {
