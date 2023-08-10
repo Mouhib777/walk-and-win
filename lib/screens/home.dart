@@ -176,14 +176,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ) , 
-              SizedBox(height: 10,) , 
-             
-              // Icon(Icons.run_circle , 
-              // color: primarycolor, 
-              // size: 80,
-              // ),
-              
-              SizedBox(height: 10,),
+            
+              SizedBox(height: 20,),
                  CircularPercentIndicator(
                 radius: 130.0,
                 animation: true,
@@ -215,8 +209,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                circularStrokeCap: CircularStrokeCap.butt,
-                backgroundColor: Colors.grey,
+                circularStrokeCap: CircularStrokeCap.round,
+                backgroundColor: Color.fromARGB(62, 158, 158, 158),
                 progressColor: primarycolor,
               ),
               SizedBox(height: 20,),
