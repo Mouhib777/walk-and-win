@@ -23,15 +23,20 @@ class _HomeScreenState extends State<HomeScreen> {
   BluetoothCharacteristic? targetCharacteristic;
   List<int> receivedData = [];
   
-    Future<void> initializeBluetooth() async {
-    // Obtain the current Bluetooth state
-    BluetoothState state = await flutterBlue.state.first;
+     Future<void> initializeBluetooth() async {
+    bool isBluetoothAvailable = await flutterBlue.isOn;
 
-    // Check if Bluetooth is not already turned on, then start it
-    if (state != BluetoothState.on) {
-      await flutterBlue.start();
+    if (!isBluetoothAvailable) {
+      // You can prompt the user to enable Bluetooth here
+      // For example, you can show a dialog asking the user to enable Bluetooth
+      // Then, you can listen for the Bluetooth state changes and proceed with scanning and connecting
+      // Remember to handle the case when the user cancels the dialog or doesn't enable Bluetooth
+    } else {
+      // Bluetooth is already enabled, proceed with scanning and connecting
+      scanAndConnect();
     }
   }
+  
   void scanAndConnect() {
     flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
