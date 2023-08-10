@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-      var steps = receivedData.isEmpty ? "5749" : receivedData.join(", ") ; 
+      var steps = receivedData.isEmpty ? "0" : receivedData.join(", ") ; 
       double? percentage = double.tryParse(steps)! / 10000 ; 
       double? argent = double.tryParse(steps)! /100 ;
     return Scaffold(
@@ -145,20 +145,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ), 
                   SizedBox(width: 60,),
-                  Container(
-                    height: 70 , 
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent , 
-                      border: Border.all(
-                        color: Colors.grey , 
-                        width: 5
-                      ) , 
-                      borderRadius: BorderRadius.circular(40)
+                  InkWell(
+                    child: Container(
+                      height: 70 , 
+                      width: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent , 
+                        border: Border.all(
+                          color: Colors.grey , 
+                          width: 5
+                        ) , 
+                        borderRadius: BorderRadius.circular(40)
+                      ),
+                      child: CircleAvatar(
+                        radius: 30,
+                      ),
                     ),
-                    child: CircleAvatar(
-                      radius: 30,
-                    ),
+                    onTap: () {
+                       Navigator.of(context).push(PageRouteBuilder(
+                transitionDuration: Duration.zero,
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    HomeScreen()));
+                    },
                   )
                 ],
               ) , 
