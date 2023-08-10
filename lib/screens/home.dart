@@ -5,10 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:walk_and_win/constant/constant.dart';
+import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,18 +42,32 @@ class _HomeScreenState extends State<HomeScreen> {
   //    }
 
   void scanAndConnect() async {
-    if (await Permission.bluetoothScan.request().isGranted){
-    flutterBlue.scan().listen((scanResult) {
+  if (await Permission.bluetoothScan.request().isGranted) {
+    StreamSubscription<ScanResult>? scanSubscription; // Define a StreamSubscription
+    Timer? timeoutTimer; // Define a Timer
+
+    // Set a timeout duration (in seconds)
+    const int scanTimeout = 10; // Adjust this value as needed
+
+    scanSubscription = flutterBlue.scan().listen((scanResult) {
       // device.name == ism device li yodhher f parametre bluetooth
       if (scanResult.device.name == 'HM10') {
         targetDevice = scanResult.device;
-        flutterBlue.stopScan();
-        print('Target device found and scanning stopped.');
+        scanSubscription?.cancel(); // Cancel the scanSubscription
+        timeoutTimer?.cancel(); // Cancel the timeoutTimer
+        print('Target device found and scanning stopped.'); // Print the message
         connectToDevice();
       }
     });
+
+    // Set up a timeout
+    timeoutTimer = Timer(Duration(seconds: scanTimeout), () {
+      scanSubscription?.cancel(); // Cancel the scanSubscription
+      EasyLoading.showError('Scanning timed out. Target device not found.') ; 
+      print('Scanning timed out. Target device not found.'); // Print the message
+    });
   }
-  }
+}
 
   void connectToDevice() async {
     if (targetDevice != null) {
