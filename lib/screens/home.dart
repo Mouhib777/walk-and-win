@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   BluetoothDevice? targetDevice;
   BluetoothCharacteristic? targetCharacteristic;
   List<int> receivedData = [];
-   var bluetoothName = "Huawei P SMART" ;
+   var bluetoothName = "HM10" ;
 
   void scanAndConnect() async {
   if (await Permission.bluetoothScan.request().isGranted) {
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
         if (characteristic.uuid.toString() ==
         // badelha bil uuid 
         // exemple: 0000XXXX-0000-1000-8000-00805F9B34FB
-         "YOUR_CHARACTERISTIC_UUID" //na7y ""
+         00001234-0000-1000-8000-008051234567 //na7y ""
          ) {
           targetCharacteristic = characteristic;
           subscribeToCharacteristic();
