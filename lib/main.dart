@@ -4,6 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:walk_and_win/constant/constant.dart';
 import 'package:walk_and_win/firebase_options.dart';
 import 'package:walk_and_win/screens/register-login/login.dart';
+import 'package:walk_and_win/screens/register-login/register.dart';
 import 'package:walk_and_win/screens/splash.dart';
 
 void main() async{

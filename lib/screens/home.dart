@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
  FlutterBlue flutterBlue = FlutterBlue.instance;
   BluetoothDevice? targetDevice;
   BluetoothCharacteristic? targetCharacteristic;
-  List<int> receivedData = [];
+  List<int> receivedData = [5487];
    var bluetoothName = "HM10" ;
 
   void scanAndConnect() async {

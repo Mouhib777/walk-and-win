@@ -70,7 +70,7 @@ class _loginScreenState extends State<loginScreen> {
                     "Connexion",
                     style: GoogleFonts.montserratAlternates(
                         fontSize: 34, fontWeight: FontWeight.bold, 
-                        color: Colors.white
+                        color: Colors.black
                         ),
                   ),
                 ),
@@ -87,7 +87,7 @@ class _loginScreenState extends State<loginScreen> {
                 "Nous vous attendons pour vous          reconnecter",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.w400, fontSize: 14 ,color: Colors.white),
+                    fontWeight: FontWeight.w400, fontSize: 14 ,color: Colors.black),
               ),
                     ),
                     SizedBox(
@@ -99,7 +99,7 @@ class _loginScreenState extends State<loginScreen> {
                 SizedBox(
                   width: 330,
                   child: TextField(
-                    style: GoogleFonts.montserrat(color: Colors.white),
+                    style: GoogleFonts.montserrat(color: Colors.black),
                     decoration: InputDecoration(
                       hintStyle: GoogleFonts.montserrat(),
                       labelStyle: GoogleFonts.montserrat(),
@@ -125,7 +125,7 @@ class _loginScreenState extends State<loginScreen> {
                   width: 333,
                   child: TextFormField(
                     style:GoogleFonts.montserrat(
-                      color: Colors.white
+                      color: Colors.black
                     ) ,
                     decoration: InputDecoration(
                       
@@ -186,7 +186,7 @@ class _loginScreenState extends State<loginScreen> {
                       },
                       child: Text(
                         "Mot de passe oublié ?",
-                        style: GoogleFonts.montserrat(color: Colors.white),
+                        style: GoogleFonts.montserrat(color: Colors.black),
                       ),
                     ),
                   ],
@@ -272,7 +272,7 @@ class _loginScreenState extends State<loginScreen> {
                     Text(
                       'Pas encore de compte?',
                       style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500, fontSize: 14,color: Colors.white),
+                          fontWeight: FontWeight.w500, fontSize: 14,color: Colors.black),
                     ),
                     SizedBox(
                       width: 5,
