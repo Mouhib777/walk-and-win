@@ -291,7 +291,7 @@ class _registerScreenState extends State<registerScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'de Tunisie Autoroutes',
+                        'de Walk and Win',
                         style: GoogleFonts.montserratAlternates(
                           fontSize: 14,
                         ),
