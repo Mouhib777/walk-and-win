@@ -67,7 +67,7 @@ class _loginScreenState extends State<loginScreen> {
                
                 FadeInLeft(
                   child: Text(
-                    "Sign in",
+                    "Connexion",
                     style: GoogleFonts.montserratAlternates(
                         fontSize: 34, fontWeight: FontWeight.bold, 
                         color: Colors.black
