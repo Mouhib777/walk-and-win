@@ -34,7 +34,7 @@ class _registerScreenState extends State<registerScreen> {
   var _confirmController = TextEditingController();
   var _emailController = TextEditingController();
   var _fNameController = TextEditingController();
-  var _ribController= TextEditingController();
+  var _ribController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
   bool _obscureText = true;
@@ -328,9 +328,9 @@ class _registerScreenState extends State<registerScreen> {
                                 .createUserWithEmailAndPassword(
                                     email: email!.trim(),
                                     password: password!.trim());
-                                    final storage = FlutterSecureStorage(); 
-                                    await storage.write(key: 'RIB', value: rib);
-                                    print("rib saved");
+                            final storage = FlutterSecureStorage();
+                            await storage.write(key: 'RIB', value: rib);
+                            print("rib saved");
 
                             final User? userr =
                                 FirebaseAuth.instance.currentUser;

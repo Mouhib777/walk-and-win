@@ -24,7 +24,6 @@ class _splashScreenState extends State<splashScreen> {
         Duration(
           seconds: 3,
         ), () async {
-
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user == null) {
           Navigator.of(context).push(PageRouteBuilder(
@@ -32,11 +31,10 @@ class _splashScreenState extends State<splashScreen> {
               pageBuilder: (context, animation, secondaryAnimation) =>
                   loginScreen()));
         } else {
-            Navigator.of(context).push(PageRouteBuilder(
-                transitionDuration: Duration.zero,
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    HomeScreen()));
-          
+          Navigator.of(context).push(PageRouteBuilder(
+              transitionDuration: Duration.zero,
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  HomeScreen()));
         }
       });
     });

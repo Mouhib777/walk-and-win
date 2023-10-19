@@ -1,4 +1,3 @@
-
 import 'package:animate_do/animate_do.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,80 +19,76 @@ class _loginScreenState extends State<loginScreen> {
   String? f_name;
   String? password;
   String? p_confirm;
-  bool _obscureText = true;  
+  bool _obscureText = true;
   bool _isLoading = false;
 
   @override
-
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("images/pic2.jpg") , 
-          fit: BoxFit.fitHeight, 
-          opacity: 180
-          )
-      ),
+          image: DecorationImage(
+              image: AssetImage("images/pic2.jpg"),
+              fit: BoxFit.fitHeight,
+              opacity: 180)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          title: FadeIn(
-            child: Text(
-              "Walk and win",
-              style: GoogleFonts.montserratAlternates(
-                  color: primarycolor,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0,
-                  fontSize: 24),
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            title: FadeIn(
+              child: Text(
+                "Walk and win",
+                style: GoogleFonts.montserratAlternates(
+                    color: primarycolor,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0,
+                    fontSize: 24),
+              ),
             ),
-          ),
-          centerTitle: true,
-          automaticallyImplyLeading: false
-          
-        ),
+            centerTitle: true,
+            automaticallyImplyLeading: false),
         body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(12.0),
-              child: Center(
-                  child:
-                      Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    SizedBox(
+          padding: EdgeInsets.all(12.0),
+          child: Center(
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
-                    ),
-                    Row(
+            ),
+            Row(
               children: [
-               
                 FadeInLeft(
                   child: Text(
                     "Connexion",
                     style: GoogleFonts.montserratAlternates(
-                        fontSize: 34, fontWeight: FontWeight.bold, 
-                        color: Colors.black
-                        ),
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
                 ),
               ],
-                    ),
-                    SizedBox(
+            ),
+            SizedBox(
               height: 30,
-                    ),
-                    SizedBox(
+            ),
+            SizedBox(
               width: 20,
-                    ),
-                    FadeInLeft(
+            ),
+            FadeInLeft(
               child: Text(
                 "Nous vous attendons pour vous          reconnecter",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.w400, fontSize: 14 ,color: Colors.black),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Colors.black),
               ),
-                    ),
-                    SizedBox(
+            ),
+            SizedBox(
               height: 40,
-                    ),
-                    FadeInUp(
+            ),
+            FadeInUp(
               child: SizedBox(
                   child: Column(children: [
                 SizedBox(
@@ -111,7 +106,7 @@ class _loginScreenState extends State<loginScreen> {
                     ),
                     autofocus: false,
                     keyboardType: TextInputType.emailAddress,
-                    
+
                     onChanged: (value) {
                       email = value;
                     },
@@ -124,33 +119,28 @@ class _loginScreenState extends State<loginScreen> {
                 SizedBox(
                   width: 333,
                   child: TextFormField(
-                    style:GoogleFonts.montserrat(
-                      color: Colors.black
-                    ) ,
+                    style: GoogleFonts.montserrat(color: Colors.black),
                     decoration: InputDecoration(
-                      
                       suffixIcon: IconButton(
                         icon: Icon(
-                          _obscureText ? Icons.visibility : Icons.visibility_off,
+                          _obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                           color: Colors.grey,
                         ),
                         onPressed: () {
-                         
                           setState(() {
                             _obscureText = !_obscureText;
                           });
                         },
                       ),
-                     
                       hintText: 'Mot de passe',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15)),
                       labelText: '  Mot de passe',
                     ),
                     autofocus: false,
-                    
-            
-                   
+
                     onChanged: (value) {
                       password = value;
                     },
@@ -164,9 +154,9 @@ class _loginScreenState extends State<loginScreen> {
                         return null;
                       }
                     },
-            
+
                     obscureText: _obscureText,
-            
+
                     // ),
                   ),
                 ),
@@ -176,7 +166,6 @@ class _loginScreenState extends State<loginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                   
                     InkWell(
                       onTap: () {
                         // Navigator.of(context).push(PageRouteBuilder(
@@ -205,7 +194,7 @@ class _loginScreenState extends State<loginScreen> {
                         });
                         await FirebaseAuth.instance.signInWithEmailAndPassword(
                             email: email!.trim(), password: password!.trim());
-            
+
                         // Navigator.push(
                         //     context,
                         //     MaterialPageRoute(
@@ -217,21 +206,24 @@ class _loginScreenState extends State<loginScreen> {
                             "No user found with this email",
                             type: AnimatedSnackBarType.error,
                             duration: Duration(seconds: 4),
-                            mobileSnackBarPosition: MobileSnackBarPosition.bottom,
+                            mobileSnackBarPosition:
+                                MobileSnackBarPosition.bottom,
                           ).show(context);
                         } else if (ex.code == 'wrong-password') {
                           AnimatedSnackBar.material(
                             'Incorrect password',
                             type: AnimatedSnackBarType.error,
                             duration: Duration(seconds: 6),
-                            mobileSnackBarPosition: MobileSnackBarPosition.bottom,
+                            mobileSnackBarPosition:
+                                MobileSnackBarPosition.bottom,
                           ).show(context);
                         } else if (ex.code == 'invalid-email') {
                           AnimatedSnackBar.material(
                             'Invalid email address',
                             type: AnimatedSnackBarType.error,
                             duration: Duration(seconds: 4),
-                            mobileSnackBarPosition: MobileSnackBarPosition.bottom,
+                            mobileSnackBarPosition:
+                                MobileSnackBarPosition.bottom,
                           ).show(context);
                         }
                         FocusScopeNode currentFocus = FocusScope.of(context);
@@ -242,10 +234,11 @@ class _loginScreenState extends State<loginScreen> {
                           _isLoading = false;
                         });
                       }
-                        Navigator.of(context).push(PageRouteBuilder(
-                transitionDuration: Duration.zero,
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    HomeScreen()));
+                      Navigator.of(context).push(PageRouteBuilder(
+                          transitionDuration: Duration.zero,
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  HomeScreen()));
                     },
                     child: Text(
                       "Connectez-vous",
@@ -262,7 +255,8 @@ class _loginScreenState extends State<loginScreen> {
                 SizedBox(
                   height: 10,
                 ),
-                SizedBox(child: _isLoading ? CircularProgressIndicator() : null),
+                SizedBox(
+                    child: _isLoading ? CircularProgressIndicator() : null),
                 SizedBox(
                   height: 20,
                 ),
@@ -272,7 +266,9 @@ class _loginScreenState extends State<loginScreen> {
                     Text(
                       'Pas encore de compte?',
                       style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500, fontSize: 14,color: Colors.black),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Colors.black),
                     ),
                     SizedBox(
                       width: 5,
@@ -295,56 +291,54 @@ class _loginScreenState extends State<loginScreen> {
                   ],
                 ),
               ])),
-                    ),
-                    SizedBox(
+            ),
+            SizedBox(
               height: 30,
-                    ),
-                    // FadeIn(
-                    //   delay: Duration(milliseconds: 1500),
-                    //   child: SizedBox(
-                    //     child: Column(
-                    //       children: [
-                    //         Text(
-                    //           'Or continue with',
-                    //           style: GoogleFonts.montserrat(
-                    //               fontSize: 15, fontWeight: FontWeight.w400),
-                    //         ),
-                    //         SizedBox(
-                    //           height: 30,
-                    //         ),
-                    //         Row(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             InkWell(
-                    //               child: Image.asset(
-                    //                 "assets/images/facebook.png",
-                    //                 height: 40,
-                    //               ),
-                    //               onTap: () {
-                    //                 // _signInWithFacebook();
-                    //               },
-                    //             ),
-                    //             SizedBox(
-                    //               width: 40,
-                    //             ),
-                    //             InkWell(
-                    //               child: Image.asset(
-                    //                 "assets/images/google.png",
-                    //                 height: 40,
-                    //               ),
-                    //               onTap: () {},
-                    //             )
-                    //           ],
-                    //         )
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-                  ])),
-            )),
+            ),
+            // FadeIn(
+            //   delay: Duration(milliseconds: 1500),
+            //   child: SizedBox(
+            //     child: Column(
+            //       children: [
+            //         Text(
+            //           'Or continue with',
+            //           style: GoogleFonts.montserrat(
+            //               fontSize: 15, fontWeight: FontWeight.w400),
+            //         ),
+            //         SizedBox(
+            //           height: 30,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             InkWell(
+            //               child: Image.asset(
+            //                 "assets/images/facebook.png",
+            //                 height: 40,
+            //               ),
+            //               onTap: () {
+            //                 // _signInWithFacebook();
+            //               },
+            //             ),
+            //             SizedBox(
+            //               width: 40,
+            //             ),
+            //             InkWell(
+            //               child: Image.asset(
+            //                 "assets/images/google.png",
+            //                 height: 40,
+            //               ),
+            //               onTap: () {},
+            //             )
+            //           ],
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
+          ])),
+        )),
       ),
     );
   }
-
- 
 }
