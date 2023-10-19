@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:walk_and_win/constant/constant.dart';
+import 'package:walk_and_win/screens/splash.dart';
 // import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
@@ -161,11 +162,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         radius: 30,
                       ),
                     ),
-                    onTap: () {
+                    onTap: () async{
+                      await FirebaseAuth.instance.signOut();
                        Navigator.of(context).push(PageRouteBuilder(
                 transitionDuration: Duration.zero,
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    HomeScreen()));
+                    splashScreen()));
                     },
                   )
                 ],
