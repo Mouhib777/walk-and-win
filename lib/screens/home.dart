@@ -117,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     // var steps = manualSteps;
-    var steps = manualSteps=="1" ?(receivedData.isEmpty ? "0" : receivedData.join(", ")): manualSteps;
+    var steps = manualSteps == "1"
+        ? (receivedData.isEmpty ? "0" : receivedData.join(", "))
+        : manualSteps;
     double? percentage = double.tryParse(steps)! / 10000;
     double? argent = double.tryParse(steps)! / 100;
     return Scaffold(
@@ -215,9 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         TextButton(
                                           child: Text('OK'),
                                           onPressed: () {
-                                            setState(() {
-                                              
-                                            });
+                                            setState(() {});
                                             // print('Entered text: $enteredText');
                                             Navigator.of(context).pop();
                                           },
@@ -266,7 +266,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      EasyLoading.show(status: "Connecting to $bluetoothName...");
+                      EasyLoading.show(
+                          status: "Connecting to $bluetoothName...");
                       scanAndConnect();
                     },
                     child: Row(
