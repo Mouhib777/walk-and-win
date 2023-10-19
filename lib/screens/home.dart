@@ -186,12 +186,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                           steps,
-                          style: GoogleFonts.montserrat(
-                        fontSize: 40 , 
-                        fontWeight: FontWeight.w800 , 
-              ),
+                        InkWell(
+                          onTap: () {
+                            
+                          },
+                          child: Text(
+                             steps,
+                            style: GoogleFonts.montserrat(
+                          fontSize: 40 , 
+                          fontWeight: FontWeight.w800 , 
+                                      ),
+                          ),
                         ),
                   
                         SizedBox(height: 15,),
